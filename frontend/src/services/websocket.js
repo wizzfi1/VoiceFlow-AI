@@ -1,7 +1,7 @@
 export let socket;
 
 export function connectWebSocket(onTranscript) {
-  socket = new WebSocket("ws://localhost:8000/ws");
+  socket = new WebSocket("wss://voiceflow-backend.onrender.com/ws");
 
   socket.onmessage = (event) => {
     onTranscript(event.data);
