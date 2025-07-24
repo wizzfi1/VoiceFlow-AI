@@ -3,7 +3,6 @@ import asyncio
 import json
 import base64
 
-ASSEMBLYAI_API_KEY = "1b734a0153e449988733516b48f3a7e9"
 
 async def handle_stream(websocket):
     url = "wss://api.assemblyai.com/v2/realtime/ws?sample_rate=16000"
