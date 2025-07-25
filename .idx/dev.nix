@@ -16,6 +16,7 @@
      pkgs.docker-client
      pkgs.openssh
      pkgs.tenv
+     pkgs.run
      pkgs.ansible
      pkgs.sudo
      pkgs.awscli
