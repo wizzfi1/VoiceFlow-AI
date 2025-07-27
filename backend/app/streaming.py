@@ -1,13 +1,16 @@
 import aiohttp
 import asyncio
 import json
-import base64
+import os
 
+ASSEMBLYAI_API_KEY = os.getenv("ASSEMBLYAI_API_KEY")
+if not ASSEMBLYAI_API_KEY:
+    raise RuntimeError("❌ ASSEMBLYAI_API_KEY is not set in environment variables")
 
 async def handle_stream(websocket):
     url = "wss://api.assemblyai.com/v2/realtime/ws?sample_rate=16000"
-
     headers = {"Authorization": ASSEMBLYAI_API_KEY}
+
     async with aiohttp.ClientSession() as session:
         async with session.ws_connect(url, headers=headers) as stream:
             async def send_audio():
